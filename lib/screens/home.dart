@@ -1,5 +1,6 @@
 import 'package:macha/data/banner_model.dart';
 import 'package:flutter/material.dart';
+import 'package:macha/screens/product_detail_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 // import 'package:flutter/rendering.dart';
 
@@ -25,80 +26,90 @@ class _HomeState extends State<Home> {
             appBarr(),
             searchBox(),
             banner(),
-            body(),
+            cards(),
           ],
         ),
       ),
     );
   }
 
-  SliverPadding body() {
+  SliverPadding cards() {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
       sliver: SliverGrid(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 25),
-                    child: Image.asset(
-                      'assets/images/${index + 1}.png',
-                      height: 200,
-                      width: 190,
-                      fit: BoxFit.cover,
-                    ),
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        ProductDetailScreen(index: index),
                   ),
-                  Positioned(
-                    top: 190,
-                    left: 20,
-                    child: Text(
-                      banners()[index].name!,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 25),
+                      child: Image.asset(
+                        'assets/images/${index + 1}.png',
+                        height: 200,
+                        width: 190,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 210,
-                    right: 0,
-                    left: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '\$ ${banners()[index].price!}',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: second.withOpacity(0.7),
-                            ),
-                          ),
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: second.withOpacity(0.7),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: const Icon(
-                              Icons.shopping_cart_outlined,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
+                    Positioned(
+                      top: 190,
+                      left: 20,
+                      child: Text(
+                        banners()[index].name!,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      top: 210,
+                      right: 0,
+                      left: 5,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$ ${banners()[index].price!}',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: second.withOpacity(0.7),
+                              ),
+                            ),
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: second.withOpacity(0.7),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: const Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },

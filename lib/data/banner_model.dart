@@ -17,7 +17,7 @@ List<Banner> banners() {
   three.price = '90';
 
   Banner four = Banner();
-  four.image = 'Suprema.png';
+  four.image = '4.png';
   four.name = 'Suprema';
   four.price = '85';
 
