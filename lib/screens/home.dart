@@ -26,14 +26,14 @@ class _HomeState extends State<Home> {
             appBarr(),
             searchBox(),
             banner(),
-            cards(),
+            mainCards(),
           ],
         ),
       ),
     );
   }
 
-  SliverPadding cards() {
+  SliverPadding mainCards() {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
       sliver: SliverGrid(
