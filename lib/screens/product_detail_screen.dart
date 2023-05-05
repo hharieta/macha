@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:macha/constants/colors.dart';
+import 'package:macha/constants/navigation.dart';
 import 'package:macha/data/banner_model.dart';
+import 'package:macha/main.dart';
 import 'package:macha/screens/home.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -11,25 +13,235 @@ class ProductDetailScreen extends StatefulWidget {
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
 }
 
+int indexx = 0;
+int indexxx = 0;
+List size = ["S", "M", "G", "XL"];
+
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
+    List getImages = [
+      banners()[index].image!,
+      banners()[index].image1!,
+      banners()[index].image2!,
+      banners()[index].image3!
+    ];
+
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "\$${banners()[index].price!}",
+              style: TextStyle(
+                color: second,
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Container(
+              width: 190,
+              height: 50,
+              decoration: BoxDecoration(
+                color: second,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(
+                      Icons.shopping_bag_outlined,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Add to Cart',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    )
+                  ]),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: CustomScrollView(
-        slivers: [
-          appbar(context),
-        ],
-      )),
+        child: CustomScrollView(
+          slivers: [
+            appbar(context, getImages),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              sliver: SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      banners()[index].name!,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          '4.3',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade400,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 70,
+                      child: ListView.builder(
+                        itemCount: 4,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                              left: indexx == 0 ? 0 : 24,
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  indexx = index;
+                                });
+                              },
+                              child: Container(
+                                height: 70,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 2,
+                                    color:
+                                        indexx == index ? second : Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/images/${getImages[index]}',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Select Size',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Container(
+                      height: 35,
+                      child: ListView.builder(
+                        itemCount: 4,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                              right: 14,
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  indexxx = index;
+                                });
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 35,
+                                width: 35,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 1.2,
+                                    color:
+                                        indexxx == index ? second : Colors.grey,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  '${size[index]}',
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Details',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Text(
+                        "Personalizador de salsa macha bajo demanda con toppings predefinidos:\nLa \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores La \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores La \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores La \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores La \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores La \"Salsa Macha\" con el sabor cultural de cada región del país qué complace a todos los paladares de nuestros consumidores",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-  SliverAppBar appbar(BuildContext context) {
+  SliverAppBar appbar(BuildContext context, List getImages) {
     return SliverAppBar(
       flexibleSpace: FlexibleSpaceBar(
         background: Image.asset(
-          'assets/images/${banners()[widget.index].image!}',
+          'assets/images/${getImages[indexx]}',
           fit: BoxFit.cover,
         ),
       ),
