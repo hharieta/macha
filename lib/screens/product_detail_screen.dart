@@ -13,19 +13,20 @@ class ProductDetailScreen extends StatefulWidget {
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
 }
 
-int indexx = 0;
-int indexxx = 0;
-List size = ["S", "M", "G", "XL"];
+int indexGetImagesList = 0;
+int indexSizeList = 0;
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     List getImages = [
-      banners()[index].image!,
-      banners()[index].image1!,
-      banners()[index].image2!,
-      banners()[index].image3!
+      banners()[widget.index].image!,
+      banners()[widget.index].image1!,
+      banners()[widget.index].image2!,
+      banners()[widget.index].image3!
     ];
+
+    List size = ["S", "M", "G", "XL"];
 
     return Scaffold(
       bottomNavigationBar: Padding(
@@ -123,12 +124,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.only(
-                              left: indexx == 0 ? 0 : 24,
+                              left: index == 0 ? 0 : 24,
                             ),
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  indexx = index;
+                                  indexGetImagesList = index;
                                 });
                               },
                               child: Container(
@@ -137,8 +138,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     width: 2,
-                                    color:
-                                        indexx == index ? second : Colors.grey,
+                                    color: indexGetImagesList == index
+                                        ? second
+                                        : Colors.grey,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
@@ -177,7 +179,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  indexxx = index;
+                                  indexSizeList = index;
                                 });
                               },
                               child: Container(
@@ -187,8 +189,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     width: 1.2,
-                                    color:
-                                        indexxx == index ? second : Colors.grey,
+                                    color: indexSizeList == index
+                                        ? second
+                                        : Colors.grey,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -241,7 +244,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     return SliverAppBar(
       flexibleSpace: FlexibleSpaceBar(
         background: Image.asset(
-          'assets/images/${getImages[indexx]}',
+          'assets/images/${getImages[indexGetImagesList]}',
           fit: BoxFit.cover,
         ),
       ),

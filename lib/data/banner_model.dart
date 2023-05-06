@@ -11,17 +11,17 @@ List<Banner> banners() {
 
   Banner two = Banner();
   two.image = '2.png';
-  two.image1 = '2.png';
-  two.image2 = '2.png';
-  two.image3 = '2.png';
+  two.image1 = '2_1.png';
+  two.image2 = '2_2.png';
+  two.image3 = '2_3.png';
   two.name = 'Macha Mix';
   two.price = '70';
 
   Banner three = Banner();
   three.image = '3.png';
-  three.image1 = '3.png';
-  three.image2 = '3.png';
-  three.image3 = '3.png';
+  three.image1 = '3_1.png';
+  three.image2 = '3_2.png';
+  three.image3 = '3_3.png';
   three.name = 'Habanera';
   three.price = '90';
 
