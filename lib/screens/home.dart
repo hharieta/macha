@@ -128,7 +128,7 @@ class _HomeState extends State<Home> {
     return SliverToBoxAdapter(
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 200,
             width: double.infinity,
             child: PageView(
@@ -278,9 +278,9 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                 ),
-                child: Row(
+                child: const Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(
                       width: 15,
                     ),
