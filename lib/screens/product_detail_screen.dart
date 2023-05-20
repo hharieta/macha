@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:macha/constants/colors.dart';
 import 'package:macha/constants/navigation.dart';
 import 'package:macha/data/banner_model.dart';
-import 'package:macha/main.dart';
 import 'package:macha/screens/home.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -49,9 +48,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 color: second,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
+              child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
+                  children: [
                     Icon(
                       Icons.shopping_bag_outlined,
                       color: Colors.white,
@@ -116,7 +115,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                       height: 70,
                       child: ListView.builder(
                         itemCount: 4,
@@ -166,7 +165,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    Container(
+                    SizedBox(
                       height: 35,
                       child: ListView.builder(
                         itemCount: 4,
@@ -301,7 +300,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         onTap: () {
           Navigator.of(context).pop(
             MaterialPageRoute(
-              builder: (BuildContext context) => Home(),
+              builder: (BuildContext context) => const Home(),
             ),
           );
         },
