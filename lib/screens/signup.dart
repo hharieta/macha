@@ -9,9 +9,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
-  FocusNode _focusNode3 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode3 = FocusNode();
 
   final email = TextEditingController();
   final password = TextEditingController();
@@ -57,7 +57,7 @@ class _SignUpState extends State<SignUp> {
             const SizedBox(height: 8),
             have(),
             const SizedBox(height: 20),
-            singIN(),
+            singUp(),
             const SizedBox(height: 15),
             orDivider(),
             const SizedBox(height: 15),
@@ -98,7 +98,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Padding singIN() {
+  Padding singUp() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -110,7 +110,7 @@ class _SignUpState extends State<SignUp> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
-          "Sing in",
+          "Sing Up",
           style: TextStyle(
               color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
         ),
@@ -206,13 +206,13 @@ class _SignUpState extends State<SignUp> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
-            "Don't have an account? ",
+            "Do you have an account? ",
             style: TextStyle(color: Colors.grey[700], fontSize: 14),
           ),
           GestureDetector(
             onTap: widget.show,
             child: const Text(
-              "Sing Up",
+              "Sing In",
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 16,
