@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final VoidCallback show;
+  const LoginPage({super.key, required this.show});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
 
   final email = TextEditingController();
   final password = TextEditingController();
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
-          "Sing in",
+          "Sing In",
           style: TextStyle(
               color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
         ),
@@ -201,7 +202,8 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.grey[700], fontSize: 14),
           ),
           GestureDetector(
-            child: Text(
+            onTap: widget.show,
+            child: const Text(
               "Sing Up",
               style: TextStyle(
                   color: Colors.blue,
