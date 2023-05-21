@@ -317,7 +317,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Padding logo() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60),
+      padding: const EdgeInsets.symmetric(horizontal: 80),
       child: Image.asset('assets/images/logo2.png'),
     );
   }
