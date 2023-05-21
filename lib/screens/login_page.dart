@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         Text(
-          "OR",
+          "O",
           style: TextStyle(
             color: Colors.grey[600],
             fontSize: 14,
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
-          "Sing In",
+          "Entrar",
           style: TextStyle(
               color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
         ),
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
           title: const Padding(
             padding: EdgeInsets.only(bottom: 5),
             child: Text(
-              "Continue with Google",
+              "Continuar con Google",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -166,13 +166,13 @@ class _LoginPageState extends State<LoginPage> {
           leading: Padding(
               padding: EdgeInsets.only(bottom: 5),
               child: Icon(
-                Icons.apple,
+                Icons.facebook,
                 color: Colors.black,
               )),
           title: Padding(
             padding: EdgeInsets.only(bottom: 5),
             child: Text(
-              "Continue with Apple",
+              "Continuar con Facebook",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -198,13 +198,13 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
-            "Don't have an account? ",
+            "¿No tiene cuenta? ",
             style: TextStyle(color: Colors.grey[700], fontSize: 14),
           ),
           GestureDetector(
             onTap: widget.show,
             child: const Text(
-              "Sing Up",
+              "Registrar",
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 16,
@@ -232,7 +232,7 @@ class _LoginPageState extends State<LoginPage> {
           controller: email,
           focusNode: _focusNode1,
           decoration: InputDecoration(
-            hintText: 'e-mail',
+            hintText: 'correo',
             prefixIcon: Icon(
               Icons.email,
               color: _focusNode1.hasFocus ? Colors.black : Colors.grey[600],
@@ -288,7 +288,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: _focusNode2.hasFocus ? Colors.black : Colors.grey[600],
               ),
             ),
-            hintText: 'password',
+            hintText: 'contraseña',
             prefixIcon: Icon(
               Icons.key,
               color: _focusNode2.hasFocus ? Colors.black : Colors.grey[600],

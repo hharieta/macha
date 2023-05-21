@@ -81,7 +81,7 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
         Text(
-          "OR",
+          "O",
           style: TextStyle(
             color: Colors.grey[600],
             fontSize: 14,
@@ -110,7 +110,7 @@ class _SignUpState extends State<SignUp> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
-          "Sing Up",
+          "Registrar",
           style: TextStyle(
               color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
         ),
@@ -140,7 +140,7 @@ class _SignUpState extends State<SignUp> {
           title: const Padding(
             padding: EdgeInsets.only(bottom: 5),
             child: Text(
-              "Continue with Google",
+              "Continuar con Google",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -174,13 +174,13 @@ class _SignUpState extends State<SignUp> {
           leading: Padding(
               padding: EdgeInsets.only(bottom: 5),
               child: Icon(
-                Icons.apple,
+                Icons.facebook,
                 color: Colors.black,
               )),
           title: Padding(
             padding: EdgeInsets.only(bottom: 5),
             child: Text(
-              "Continue with Apple",
+              "Continuar con Facebook",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -206,13 +206,13 @@ class _SignUpState extends State<SignUp> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
-            "Do you have an account? ",
+            "¿Ya tiene cuenta? ",
             style: TextStyle(color: Colors.grey[700], fontSize: 14),
           ),
           GestureDetector(
             onTap: widget.show,
             child: const Text(
-              "Sing In",
+              "Entrar",
               style: TextStyle(
                   color: Colors.blue,
                   fontSize: 16,
@@ -240,7 +240,7 @@ class _SignUpState extends State<SignUp> {
           controller: email,
           focusNode: _focusNode1,
           decoration: InputDecoration(
-            hintText: 'e-mail',
+            hintText: 'correo',
             prefixIcon: Icon(
               Icons.email,
               color: _focusNode1.hasFocus ? Colors.black : Colors.grey[600],
@@ -285,7 +285,7 @@ class _SignUpState extends State<SignUp> {
           obscureText: visible,
           obscuringCharacter: '*',
           decoration: InputDecoration(
-            hintText: 'password',
+            hintText: 'contraseña',
             prefixIcon: Icon(
               Icons.key,
               color: _focusNode2.hasFocus ? Colors.black : Colors.grey[600],
@@ -341,7 +341,7 @@ class _SignUpState extends State<SignUp> {
                 color: _focusNode3.hasFocus ? Colors.black : Colors.grey[600],
               ),
             ),
-            hintText: 'password confirm',
+            hintText: 'confirmar contraseña',
             prefixIcon: Icon(
               Icons.key,
               color: _focusNode3.hasFocus ? Colors.black : Colors.grey[600],
