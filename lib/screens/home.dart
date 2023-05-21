@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
               height: 30,
             ),
             Text(
-              'New Relase',
+              'Nueva',
               style: TextStyle(
                 color: backgroundColor,
                 fontSize: 16,
@@ -222,7 +222,7 @@ class _HomeState extends State<Home> {
               height: 4,
             ),
             Text(
-              'Ajua!',
+              '¡Ajua!',
               style: TextStyle(
                 color: backgroundColor,
                 fontWeight: FontWeight.bold,
@@ -241,7 +241,7 @@ class _HomeState extends State<Home> {
                 color: mains,
               ),
               child: Text(
-                'Buy Now',
+                'Comprar',
                 style: TextStyle(
                   color: backgroundColor,
                   fontSize: 16,
@@ -289,7 +289,7 @@ class _HomeState extends State<Home> {
                       width: 15,
                     ),
                     Text(
-                      'Search Suase',
+                      'Buscar Base',
                       style: TextStyle(
                           color: Color(0xffbcbcbc),
                           fontWeight: FontWeight.w400),
@@ -338,12 +338,12 @@ SliverToBoxAdapter appBarr() {
             child: const Icon(Icons.list),
           ),
           Container(
-            width: 40,
-            height: 40,
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: const DecorationImage(
-                image: AssetImage("assets/images/logo.jpeg"),
+                image: AssetImage("assets/images/logo2-1.png"),
               ),
             ),
           ),
