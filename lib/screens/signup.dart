@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:macha/screens/home.dart';
 
 class SignUp extends StatefulWidget {
   final VoidCallback show;
@@ -101,19 +102,44 @@ class _SignUpState extends State<SignUp> {
   Padding singUp() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Container(
-        alignment: Alignment.center,
-        width: double.infinity,
-        height: 50,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Text(
-          "Registrar",
-          style: TextStyle(
-              color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
-        ),
+      /* changed child: Container() to Stack() with children
+        for fake sign up */
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Text(
+              "Registrar",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 50,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(0, 0, 0, 0),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const Home(),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
