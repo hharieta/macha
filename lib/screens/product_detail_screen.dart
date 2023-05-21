@@ -25,7 +25,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       banners()[widget.index].image3!
     ];
 
-    List size = ["S", "M", "G", "XL"];
+    List size = ["CH", "M", "G", "XG"];
 
     return Scaffold(
       bottomNavigationBar: Padding(
@@ -56,7 +56,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       color: Colors.white,
                     ),
                     Text(
-                      'Add to Cart',
+                      'Agregar a cesta',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -157,7 +157,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'Select Size',
+                      'Seleccionar tamaño',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
@@ -210,7 +210,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'Details',
+                      'Detalles',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
